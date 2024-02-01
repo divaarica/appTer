@@ -147,3 +147,7 @@
 .floating {
     float: center;
 }
+
+.custom-modal-dialog {
+    max-width: 80%; /* Ajustez la valeur selon vos besoins */
+}

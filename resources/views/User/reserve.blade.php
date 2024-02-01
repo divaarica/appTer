@@ -59,52 +59,83 @@
             <br>
 
             <!-- reservation form -->
-            <div class="col-md-6 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                <form class="reserve-form row">
+            <div class="col-md-8 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                <form class="reserve-form row" action="{{ route('reservations.store') }}" method="post">
+                    @csrf
                     <div class="section-header text-center">
                         <h4 class="sub-title">Reservation</h4>
                         <h2 class="title white-text">Faites une reservation de ticket(s)</h2>
+                        @error('end')
+                        <div class="text-danger">{{ $message }}</div>
+                        <br>
+                        @enderror
                     </div>
+
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input class="input" type="text" placeholder="Name" id="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone:</label>
-                            <input class="input" type="tel" placeholder="Phone" id="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Date:</label>
-                            <input class="input" type="text" placeholder="MM/DD/YYYY" id="date">
-                        </div>
-                    </div>
+                            <label for="phone">Depart:</label>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input class="input" type="email" placeholder="Email" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="number">Number of Guests:</label>
-                            <select class="input" id="number">
-                                <option>1 Person</option>
-                                <option>2 People</option>
-                                <option>3 People</option>
-                                <option>4 People</option>
-                                <option>5 People</option>
-                                <option>6 People</option>
+                            <select class="input" id="start" name="start">
+                                @foreach( $regions as $region)
+                                <option value="{{ $region->id }}">{{ $region-> name}}</option>
+                                @endforeach
                             </select>
+
                         </div>
+                    </div>
+
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="time">Time:</label>
-                            <input class="input" type="text" placeholder="HH:MM" id="time">
+                            <label for="phone">Arrivee:</label>
+
+                            <select class="input" id="end" name="end">
+                                @foreach( $regions as $region)
+                                <option value="{{ $region->id }}">{{ $region-> name}}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="">Ligne:</label>
+
+                            <select class="input" id="ligne" name="ligne_id">
+                                @foreach ($lignes as $ligne)
+                                <option value="{{ $ligne->id }}">{{ $ligne -> start}} - {{ $ligne -> end}}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="number">Nombre de personnes:</label>
+                            <select class="input" id="nbPersons" name="nbPersons">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="col-md-12 text-center">
-                        <button class="main-button">Book Now</button>
+                        <div class="form-group">
+                            <br>
+                            @foreach( $classes as $classe)
+                            <label>
+                                <input type="radio" name="class_id" value="{{ $classe -> id }}" checked> {{ $classe -> name }}
+                            </label>
+                            @endforeach
+                        </div>
+                        <br>
+                        <button type="submit" class="main-button">Book Now</button>
                     </div>
 
                 </form>
@@ -112,7 +143,7 @@
             <!-- /reservation form -->
 
             <!-- opening time -->
-            <div class="col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1">
+            <div class="col-md-3 col-md-offset-0 col-sm-10 col-sm-offset-1">
                 <div class="opening-time row">
                     <div class="section-header text-center">
                         <h2 class="title white-text">Horaires</h2>

@@ -31,6 +31,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -84,20 +87,17 @@
 
                     <ul class="main-nav nav navbar-nav">
                         <li><a href="{{ route('users.index') }}">Acceuil</a></li>
-                        <li><a href="#horaires">Horaires</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="{{ route('users.index') }}">Horaires</a></li>
+                        <li><a href="{{ route('users.index') }}">Contact</a></li>
                         @auth
-                        <li><a href="{{ route('users.reserve') }}">Reserver</a></li>
-                        <li><a href="{{ route('users.myReserve') }}">Mes reservations</a></li>
+                        <li><a href="{{ route('reservations.create') }}">Reserver</a></li>
+                        <li><a href="{{ route('reservations.index')}}">Mes reservations</a></li>
                         @endauth
 
                     </ul>
                     <!-- /nav -->
 
                     <!-- button nav -->
-
-
-
 
                     <ul class="cta-nav">
                         @auth
@@ -124,8 +124,8 @@
                             <span></span>
                             <!-- <pre>{{ print_r(Auth::user(), true) }}</pre> -->
                             <div class="dropdown-content">
-                                <a href="#">Editer Profile</a>
-                                <a href="#">changer le mot de passe</a>
+                                <a href="{{ route('users.edit', ['user'=> auth()->user()->id] ) }}">Editer Profile</a>
+                                <a href="{{ route('users.editPassword') }}">changer le mot de passe</a>
                             </div>
                         </li>
                         @endauth
@@ -153,7 +153,7 @@
                 <!-- copyright -->
                 <div class="col-md-6">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    <span class="copyright">Copyright @2018 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></span>
+                    <span class="copyright">Copyright @2024 All rights reserved |  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Groupe1L3Gl</a></span>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
                 <!-- /copyright -->
@@ -161,12 +161,13 @@
                 <!-- footer nav -->
                 <div class="col-md-6">
                     <nav class="footer-nav">
-                        <a href="index.html">Home</a>
-                        <a href="index.html#about">About</a>
-                        <a href="index.html#menu">Menu</a>
-                        <a href="index.html#reservation">Reservation</a>
-                        <a href="index.html#events">Events</a>
-                        <a href="index.html#contact">Contact</a>
+                        <a href="{{ route('users.index') }}">Acceuil</a>
+                        <a href="{{ route('users.index') }}">Horaires</a>
+                        <a href="{{ route('users.index') }}">Contact</a>
+                        @auth
+                        <a href="{{ route('reservations.create') }}">Reserver</a>
+                        <a href="{{ route('reservations.index')}}">Mes reservations</a>
+                        @endauth
                     </nav>
                 </div>
                 <!-- /footer nav -->
@@ -199,6 +200,13 @@
                 method: 'POST',
                 credentials: 'include'
             });
+        });
+    </script>
+    <script>
+        flatpickr("#datepicker", {
+            defaultDate: "today",
+            minDate: "today",
+            dateFormat: "Y-m-d"
         });
     </script>
     <script type="text/javascript" src="{{ asset('User/js/jquery.min.js') }}"></script>

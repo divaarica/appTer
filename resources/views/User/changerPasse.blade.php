@@ -5,7 +5,7 @@
 <div id="homeCon" class="banner-area2">
 
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url(User/img/terimg6.png)"></div>
+    <div class="bg-image bg-parallax overlay editP"></div>
     <!-- /Backgound Image -->
 
     <div class="home-wrapper2">
@@ -51,31 +51,33 @@
 
             <!-- reservation form -->
             <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-3 ">
-                <form class="reserve-form row">
+                <form action="{{ route('users.updatePassword', ['user'=> auth()->user()->id])}}" method="post" class="reserve-form row">
                     <div class="section-header text-center">
                         <!-- <h4 class="sub-title">Connection</h4> -->
                         <h2 class="title white-text">Changer de mot de passe</h2>
                     </div>
+                    @if(session('message'))
+                    <div class="text-danger">
+                        {{ session('message') }}
+                    </div>
+                    @endif
+                    @csrf
+                    @method('PUT')
 
 
                     <div class="form-group">
                         <label for="name">Ancien mot de passe</label>
-                        <input class="input" type="text" placeholder="Name" id="name">
+                        <input class="input" type="password" id="password" name="password">
                     </div>
                     <div class="form-group">
                         <label for="phone">Nouveau mot de passe</label>
-                        <input class="input" type="tel" placeholder="Phone" id="phone">
+                        <input class="input" type="password" id="new_password" name="new_password">
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Confirmation du nouveau mot de passe</label>
-                        <input class="input" type="tel" placeholder="Phone" id="phone">
-                    </div>
-
 
                     <div class="">
-                        <button class="main-button">Changer</button>
+                        <button type="submit" class="main-button">Changer</button>
                         <div style="text-align: right;">
-                            <a href="inscription.html" class="white-text" style="text-decoration: underline;">Edite le profil</a>
+                            <a href="inscription.html" class="white-text" style="text-decoration: underline;">Editer le profil</a>
                         </div>
 
                     </div>

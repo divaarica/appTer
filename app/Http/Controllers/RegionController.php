@@ -86,4 +86,5 @@ class RegionController extends Controller
         $region->delete();
         return redirect()->route('regions.index')->with('success', 'region supprimée avec succès.');
     }
+
 }

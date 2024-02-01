@@ -129,7 +129,7 @@
 <div id="menu" class="section">
 
 	<!-- Backgound Image -->
-	<div class="bg-image bg-parallax overlay imgprix" ></div>
+	<div class="bg-image bg-parallax overlay imgprix"></div>
 	<!-- /Backgound Image -->
 
 	<!-- container -->
@@ -155,7 +155,7 @@
 						</ul>
 					</div>
 					<div class="pricingTable-signup">
-						<a href="{{ route('users.reserve') }}">
+						<a href="{{ route('reservations.create') }}">
 							Reserver
 						</a>
 						<!-- <a href="#">Modifier</a> -->
@@ -177,7 +177,7 @@
 						</ul>
 					</div>
 					<div class="pricingTable-signup">
-						<a href="{{ route('users.reserve') }}">
+						<a href="{{ route('reservations.create') }}">
 							Reserver
 						</a>
 					</div>
@@ -198,7 +198,7 @@
 						</ul>
 					</div>
 					<div class="pricingTable-signup">
-						<a href="{{ route('users.reserve') }}">
+						<a href="{{ route('reservations.create') }}">
 							Reserver
 						</a>
 					</div>
@@ -219,7 +219,7 @@
 						</ul>
 					</div>
 					<div class="pricingTable-signup">
-						<a href="{{ route('users.reserve') }}">
+						<a href="{{ route('reservations.create') }}">
 							Reserver
 						</a>
 					</div>

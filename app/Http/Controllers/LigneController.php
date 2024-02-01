@@ -90,4 +90,5 @@ class LigneController extends Controller
         $ligne->delete();
         return redirect()->route('lignes.index')->with('success', 'region supprimée avec succès.');
     }
+
 }

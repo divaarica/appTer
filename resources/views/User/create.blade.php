@@ -134,7 +134,7 @@
                         <button type="submit" class="main-button">S'inscrire</button>
                         <!-- <a class="main-button">S'inscrire</a> -->
                         <div style="text-align: right;">
-                            <a href="{{ route('users.create') }}" class="white-text" style="text-decoration: underline;">deja inscrit?
+                            <a href="{{ route('auth.login') }}" class="white-text" style="text-decoration: underline;">deja inscrit?
                                 Connectez vous</a>
                         </div>
 

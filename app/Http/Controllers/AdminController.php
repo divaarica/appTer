@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classe;
+use App\Models\Ligne;
+use App\Models\Region;
+use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +18,14 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('Admin.dashboard');
+        $nbUsers= User::where('role_id', '!=', '1')->get()->count();
+        $nbLignes=Ligne::count();
+        $nbRegions=Region::count();
+        $nbReservations=Reservation::count();
+        $classesName = Classe::pluck('name')->all();
+        $reservationsFirstClass=Reservation::where('class_id', 1)->count();
+        $reservationsSecondClass=Reservation::where('class_id', 2)->count();
+        return view('Admin.dashboard',compact('nbUsers','nbLignes','nbRegions','nbReservations','classesName','reservationsFirstClass','reservationsSecondClass'));
     }
 
     //
@@ -27,9 +38,11 @@ class AdminController extends Controller
     {
 
         $listUsers = User::where('role_id', '!=', '1')->get();
+        $listReservationsEnCours = Reservation::where('state', 1)->get();
+        $listReservationsExpire = Reservation::where('state', 0)->get();
         // dd($listUser);
 
-        return view('Admin.listUsers', compact('listUsers'));
+        return view('Admin.listUsers', compact('listUsers', 'listReservationsEnCours','listReservationsExpire'));
     }
 
 
@@ -61,6 +74,7 @@ class AdminController extends Controller
 
     public function update(Request $request, $id)
     {
+        dd($request);
         $admin = User::find($id);
         //dd($admin);
         $request->validate(
@@ -79,8 +93,13 @@ class AdminController extends Controller
 
         $admin->update($input);
 
+        if ($admin->role_id == 2) {
+            return redirect()->route('users.editPage')->with('success', 'Utilisateur modifier avec succès.');
+        }
+
         return redirect()->route('admins.editPage')->with('success', 'Utilisateur modifier avec succès.');
     }
+
 
     
 }

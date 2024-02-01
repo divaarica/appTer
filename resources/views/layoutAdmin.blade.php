@@ -44,57 +44,7 @@
 						Pages
 					</li>
 
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="{{ route('admins.index') }}">
-							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{ route('admins.editPage') }}">
-							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Profil</span>
-						</a>
-					</li>
-
-					<li class="sidebar-header">
-						Gestion
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{ route('list-users') }}">
-							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Utilisateur</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item ">
-						<a class="sidebar-link" href="{{ route('tarifs.index') }}">
-							<i class="align-middle fa fa-money"></i> <span class="align-middle">Tarifs</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item ">
-						<a class="sidebar-link" href="{{ route('classes.index') }}">
-							<i class="align-middle fa fa-duotone fa-train"></i> <span class="align-middle">Classes</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item ">
-						<a class="sidebar-link" href="{{ route('zones.index') }}">
-							<i class="align-middle fa fa-map-marker"></i> <span class="align-middle">Zones <span>
-						</a>
-					</li>
-
-					<li class="sidebar-item ">
-						<a class="sidebar-link" href="{{ route('lignes.index') }}">
-							<i class="align-middle fa fa-regular fa-map" ></i> <span class="align-middle">Lignes<span>
-						</a>
-					</li>
-
-					<li class="sidebar-item ">
-						<a class="sidebar-link" href="{{ route('regions.index') }}">
-							<i class="align-middle fa fa-globe"></i> <span class="align-middle">Regions <span>
-						</a>
-					</li>
+					@yield('sidebar')
 
 				</ul>
 
@@ -219,34 +169,7 @@
 			});
 		});
 	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Pie chart
-			new Chart(document.getElementById("chartjs-dashboard-pie"), {
-				type: "pie",
-				data: {
-					labels: ["Chrome", "Firefox"],
-					datasets: [{
-						data: [4306, 3801],
-						backgroundColor: [
-							window.theme.primary,
-							window.theme.warning,
-
-						],
-						borderWidth: 5
-					}]
-				},
-				options: {
-					responsive: !window.MSInputMethodContext,
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					cutoutPercentage: 75
-				}
-			});
-		});
-	</script>
+	@yield('js')
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Bar chart

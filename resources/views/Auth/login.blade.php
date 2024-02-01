@@ -69,7 +69,7 @@
                         <button class="main-button">Se connecter</button>
                         <!-- <a class="main-button">S'inscrire</a> -->
                         <div style="text-align: right;">
-                            <a href="inscription.html" class="white-text" style="text-decoration: underline;">Pas encore inscrit? Inscrivez vous</a>
+                            <a href="{{ route('users.create') }}" class="white-text" style="text-decoration: underline;">Pas encore inscrit? Inscrivez vous</a>
                         </div>
 
                     </div>

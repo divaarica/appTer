@@ -1,4 +1,57 @@
 @extends('layoutAdmin')
+@section('sidebar')
+<li class="sidebar-item active">
+	<a class="sidebar-link" href="{{ route('admins.index') }}">
+		<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+	</a>
+</li>
+
+<li class="sidebar-item">
+	<a class="sidebar-link" href="{{ route('admins.editPage') }}">
+		<i class="align-middle" data-feather="user"></i> <span class="align-middle">Profil</span>
+	</a>
+</li>
+
+<li class="sidebar-header">
+	Gestion
+</li>
+
+<li class="sidebar-item">
+	<a class="sidebar-link" href="{{ route('list-users') }}">
+		<i class="align-middle" data-feather="user"></i> <span class="align-middle">Utilisateur</span>
+	</a>
+</li>
+
+<li class="sidebar-item ">
+	<a class="sidebar-link" href="{{ route('tarifs.index') }}">
+		<i class="align-middle fa fa-money"></i> <span class="align-middle">Tarifs</span>
+	</a>
+</li>
+
+<li class="sidebar-item ">
+	<a class="sidebar-link" href="{{ route('classes.index') }}">
+		<i class="align-middle fa fa-duotone fa-train"></i> <span class="align-middle">Classes</span>
+	</a>
+</li>
+
+<li class="sidebar-item ">
+	<a class="sidebar-link" href="{{ route('zones.index') }}">
+		<i class="align-middle fa fa-map-marker"></i> <span class="align-middle">Zones <span>
+	</a>
+</li>
+
+<li class="sidebar-item ">
+	<a class="sidebar-link" href="{{ route('lignes.index') }}">
+		<i class="align-middle fa fa-regular fa-map"></i> <span class="align-middle">Lignes<span>
+	</a>
+</li>
+
+<li class="sidebar-item ">
+	<a class="sidebar-link" href="{{ route('regions.index') }}">
+		<i class="align-middle fa fa-globe"></i> <span class="align-middle">Regions <span>
+	</a>
+</li>
+@endsection
 @section('content')
 
 <main class="content">
@@ -11,38 +64,43 @@
 				<div class="w-100">
 					<div class="row">
 						<div class="col-sm-6">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col mt-0">
-											<h5 class="card-title">Passagers</h5>
-										</div>
+							<a href="{{ route('list-users') }} ">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col mt-0">
+												<h5 class="card-title">Utilisateur</h5>
+											</div>
 
-										<div class="col-auto">
-											<div class="stat text-primary">
-												<i class="align-middle" data-feather="truck"></i>
+											<div class="col-auto">
+												<div class="stat text-primary">
+													<i class="align-middle" data-feather="truck"></i>
+												</div>
 											</div>
 										</div>
+										<h1 class="mt-1 mb-3">{{ $nbUsers }}</h1>
 									</div>
-									<h1 class="mt-1 mb-3">2.382</h1>
 								</div>
-							</div>
+							</a>
 							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col mt-0">
-											<h5 class="card-title">Ligne</h5>
-										</div>
+								<a href="{{ route('lignes.index') }}">
+									<div class="card-body">
+										<div class="row">
+											<div class="col mt-0">
+												<h5 class="card-title">Ligne</h5>
+											</div>
 
-										<div class="col-auto">
-											<div class="stat text-primary">
-												<i class="align-middle" data-feather="users"></i>
+											<div class="col-auto">
+												<div class="stat text-primary">
+													<i class="align-middle" data-feather="users"></i>
+												</div>
 											</div>
 										</div>
-									</div>
-									<h1 class="mt-1 mb-3">14.212</h1>
+										<h1 class="mt-1 mb-3">{{ $nbLignes }}</h1>
 
-								</div>
+									</div>
+								</a>
+
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -59,26 +117,28 @@
 											</div>
 										</div>
 									</div>
-									<h1 class="mt-1 mb-3">$21.300</h1>
+									<h1 class="mt-1 mb-3">{{ $nbReservations }}</h1>
 								</div>
 							</div>
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col mt-0">
-											<h5 class="card-title">Regions</h5>
-										</div>
+							<a href="{{ route('regions.index') }}">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col mt-0">
+												<h5 class="card-title">Regions</h5>
+											</div>
 
-										<div class="col-auto">
-											<div class="stat text-primary">
-												<i class="align-middle" data-feather="shopping-cart"></i>
+											<div class="col-auto">
+												<div class="stat text-primary">
+													<i class="align-middle" data-feather="shopping-cart"></i>
+												</div>
 											</div>
 										</div>
-									</div>
-									<h1 class="mt-1 mb-3">64</h1>
+										<h1 class="mt-1 mb-3">{{ $nbRegions }}</h1>
 
+									</div>
 								</div>
-							</div>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -105,11 +165,11 @@
 								<tbody>
 									<tr>
 										<td>Premiere Classe</td>
-										<td class="text-end">4306</td>
+										<td class="text-end">{{ $reservationsFirstClass }}</td>
 									</tr>
 									<tr>
 										<td>Standard</td>
-										<td class="text-end">3801</td>
+										<td class="text-end">{{ $reservationsSecondClass }}</td>
 									</tr>
 									<!-- <tr>
 													<td>IE</td>
@@ -140,5 +200,38 @@
 
 	</div>
 </main>
+
+@endsection
+@section('js')
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		// Pie chart
+		new Chart(document.getElementById("chartjs-dashboard-pie"), {
+			type: "pie",
+			data: {
+				labels: ["{{ $classesName[0] }}", "{{ $classesName[1] }}"],
+				datasets: [{
+					data: ["{{ $reservationsFirstClass }}", "{{ $reservationsSecondClass }}"],
+
+					backgroundColor: [
+						window.theme.primary,
+						window.theme.warning,
+
+					],
+					borderWidth: 5
+				}]
+			},
+			options: {
+				responsive: !window.MSInputMethodContext,
+				maintainAspectRatio: false,
+				legend: {
+					display: false
+				},
+				cutoutPercentage: 75
+			}
+		});
+	});
+</script>
 
 @endsection

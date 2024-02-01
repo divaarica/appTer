@@ -19,4 +19,9 @@ class Region extends Model
     {
         return $this->belongsTo(Zone::class);
     }
+
+    public function reservations(){
+        
+        return $this->hasMany(Reservation::class);
+    }
 }

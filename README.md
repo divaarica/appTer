@@ -1,4 +1,4 @@
-## Application de Gestion des Réservations TER
+## Application de Gestion des Réservations de Billets TER
 
 Cette application est conçue pour simplifier la gestion des réservations de billets pour les trains régionaux (TER) au Sénégal. Elle offre une interface conviviale permettant aux utilisateurs de réserver et gérer leurs billets de train en toute simplicité. Grâce à cette application, les voyageurs peuvent visualiser les horaires des trains, effectuer des réservations et annuler des réservations existantes. Elle est conçue pour offrir une expérience fluide et intuitive, tant pour les utilisateurs occasionnels que pour les habitués du système de transport régional. Cette application est développée en utilisant le framework Laravel, et est ouverte à la contribution de la communauté. N'hésitez pas à me fair part de vos critiques pour l'amélioration de cette application afin d'offrir une expérience de réservation encore meilleure !
 

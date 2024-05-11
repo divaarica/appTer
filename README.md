@@ -1,66 +1,23 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Application de Gestion des Réservations TER
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Cette application est conçue pour simplifier la gestion des réservations de billets pour les trains régionaux (TER) au Sénégal. Elle offre une interface conviviale permettant aux utilisateurs de réserver et gérer leurs billets de train en toute simplicité. Grâce à cette application, les voyageurs peuvent visualiser les horaires des trains, effectuer des réservations et annuler des réservations existantes. Elle est conçue pour offrir une expérience fluide et intuitive, tant pour les utilisateurs occasionnels que pour les habitués du système de transport régional. Cette application est développée en utilisant le framework Laravel, et est ouverte à la contribution de la communauté. N'hésitez pas à me fair part de vos critiques pour l'amélioration de cette application afin d'offrir une expérience de réservation encore meilleure !
 
-## About Laravel
+Voici quelques captures d'écran de l'interface utilisateur de notre application de gestion des réservations TER :
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Page d'Accueil
+![terAcceuil](https://github.com/divaarica/appTer/assets/151394040/43ace76e-0216-4393-88b9-ac534ef09c14)
+![terAcceuil2](https://github.com/divaarica/appTer/assets/151394040/e791716b-402b-497c-bc86-6ad41d1bd691)
+![terAcceuil3](https://github.com/divaarica/appTer/assets/151394040/086523c6-716b-4f2d-9128-28b9defe5719)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Réservation de Billets
+![terUserReserver](https://github.com/divaarica/appTer/assets/151394040/3ce04a90-68c3-40c7-aa3c-370f0417d5eb)
+![terUserMesReservations](https://github.com/divaarica/appTer/assets/151394040/bc2a31ab-73c6-43a5-8ec8-5b8774e39484)
+![terQr](https://github.com/divaarica/appTer/assets/151394040/7e07539c-3516-4f1d-931c-46930b8dbe0d)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Admin
+![terAdminDashboard](https://github.com/divaarica/appTer/assets/151394040/71b3cf94-0368-491c-bf34-5f31e80f895b)
+![terAdminUsers](https://github.com/divaarica/appTer/assets/151394040/014b9e65-0a3f-4cde-aa48-a5bd3d48550b)
+![terAdminReservation](https://github.com/divaarica/appTer/assets/151394040/0f4ba0aa-53df-424b-a1aa-f941cd7eb46e)
+![terAdminRegions](https://github.com/divaarica/appTer/assets/151394040/a08cd4a5-a1c3-4309-bf95-77867d1d1906)
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
